@@ -35,7 +35,7 @@ export default function ExpandableButton() {
 
   if (isSubmitted) {
     return (
-        <div className="bg-slate-300 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow mx-auto" onClick={toggleExpanded}>
+        <div className="bg-green-200 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow mx-auto" onClick={toggleExpanded}>
             <h2 class="text-black font-bold mb-2">Thank you for submitting the survey!</h2>
         </div>
     );
