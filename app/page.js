@@ -1,6 +1,9 @@
-import Image from "next/image";
+import React from "react";
+import ExpandableButton from "../components/Expandable-Button";
 
 export default function Home() {
+
+
   return (
     <div className="h-screen w-screen bg-white justify-center items-center">
       <div className="flex left-0 top-0 h-32 w-screen bg-red-800 justify-center items-center">
@@ -9,17 +12,10 @@ export default function Home() {
       <br/>
       <br/>
       <br/>
-      <div className="bg-slate-300 w-11/12 p-4 rounded-lg shadow cursor-pointer mx-auto">
-        <h2 class="text-black font-bold mb-2">What do you feel about cutting down the trees in the middle campus?</h2>
-        <div class="content">
-        </div>
-      </div>
+      <ExpandableButton />
       <br/>
-      <div className="bg-slate-300 w-11/12 p-4 rounded-lg shadow cursor-pointer mx-auto">
-        <h2 class="text-black font-bold mb-2">Another question I can't think of?</h2>
-        <div class="content">
-        </div>
-      </div>
+      <br/>
+      <ExpandableButton />
 
     </div>
   );
