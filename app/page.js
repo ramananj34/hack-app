@@ -9,6 +9,11 @@ export default function Home() {
       <div className="drop-shadow-md flex left-0 top-0 h-32 w-screen bg-red-800 justify-center items-center">
         <h1 className="font-serif text-center text-white text-4xl">Colgate Surveys</h1>
       </div>
+      <a href = "/admin">
+        <div className="absolute w-min p-2 rounded-lg bg-slate-400 top-4 right-4 cursor-pointer">
+          <p className="text-white">Admin</p>
+        </div>
+      </a>
       <br/>
       <br/>
       <br/>
