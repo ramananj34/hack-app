@@ -5,6 +5,7 @@ export default function Home() {
     <div className="h-screen w-screen bg-yellow-100">
       <div className="absolute left-0 top-0 h-16 w-16 bg-red-300">
       </div>
+      <hr/>
     </div>
   );
 }
