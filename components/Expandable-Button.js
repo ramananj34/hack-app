@@ -22,17 +22,17 @@ export default function ExpandableButton() {
             <div className="bg-slate-400 p-4 pl-5 pr-5 rounded-lg" onClick={handleInnerClick}>
                 <form>
                     <label for="option1">
-                        <input type="checkbox" id="option1" name="option" value="option1" />
-                        I think it is a good idea!
+                        <input type="checkbox" id="option1" name="option" value="option1"/>
+                        <p className="inline-flex">&nbsp;I think it is a good idea!</p>
                     </label>
                     <br/>
     
                     <label for="option2">
                         <input type="checkbox" id="option2" name="option" value="option2" />
-                        I think it is a bad idea.
+                        <p className="inline-flex">&nbsp;I think it is a bad idea.</p>
                     </label>
                     <br/>
-                    <p>Colgate Email:   <input /></p>
+                    <p>Colgate Email:&nbsp;<input /></p>
                     <br />
     
                     <input type="submit" value="Submit" />
