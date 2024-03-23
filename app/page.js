@@ -12,10 +12,10 @@ export default function Home() {
       <br/>
       <br/>
       <br/>
-      <ExpandableButton />
+      <ExpandableButton question="What do you feel about cutting down the trees in the middle campus?" answers={['I think it is a good idea!', 'I think it is a bad idea.']} />
       <br/>
       <br/>
-      <ExpandableButton />
+      <ExpandableButton question="What do you feel about cutting down the trees in the middle campus?" answers={['I think it is a good idea!', 'I think it is a bad idea.']} />
 
     </div>
   );
