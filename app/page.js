@@ -2,10 +2,10 @@ import Image from "next/image";
 
 export default function Home() {
   return (
-    <main className="h-screen w-screen bg-yellow-100 text-gray">
-      <div className="static top-0 left-0 h-90 w-90 bg-red">
-
+    <div className="h-screen w-screen bg-yellow-100 text-gray">
+      <div className="absolute left-0 top-0 h-16 w-16 bg-red">
+        Hello
       </div>
-    </main>
+    </div>
   );
 }
