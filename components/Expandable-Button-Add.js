@@ -13,6 +13,9 @@ export default function ExpandableButton() {
   const [numAdditionalInputs, setNumAdditionalInputs] = useState(0);
   const [additionalInputs, setAdditionalInputs] = useState([]);
 
+  const [questionArray, setQuestionArray] = useState([]);
+  const [currentQuestion, setCurrentQuestion] = useState("");
+
   const toggleExpanded = () => {
     setExpanded(!expanded);
   };
@@ -29,9 +32,66 @@ export default function ExpandableButton() {
     setAdditionalInputs(Array.from({ length: num }, (_, index) => index + 1));
   };
 
-  const clickSubmit = () => {
-    if (numAdditionalInputs > 0 && question!="") {toggleExpanded(); setHasSubmitted(1);}
+  const handleAddQuestion = () => {
+    if (currentQuestion.trim() !== "") {
+      setQuestions([...questions, { question: currentQuestion, options: [] }]);
+      setCurrentQuestion("");
+      setNumAdditionalInputs(0);
+      setAdditionalInputs([]);
+      toggleExpanded();
+      setHasSubmitted(true);
+    }
+  };
 
+  const handleOptionChange = (index, event) => {
+    const newQuestions = [...questions];
+    newQuestions[index].options[event.target.dataset.index] = event.target.value;
+    setQuestions(newQuestions);
+  };
+
+  const handleQuestionChange = (event) => {
+    setCurrentQuestion(event.target.value);
+  };
+
+  const clickSubmit = () => {
+    if (numAdditionalInputs > 0 && question !== "") {
+      // Create an array to store the options
+      const options = [];
+      console.log(additionalInputs);     
+      // Iterate over the additionalInputs to collect the options
+      additionalInputs.forEach((index) => {
+        const optionInput = document.getElementById(`option-${index}`);
+
+        if (optionInput) {
+          console.log("input");
+          console.log(optionInput.value,"value");
+
+          options.push(optionInput.value);
+        }
+      });
+  
+      // Create an object to represent the question and its options
+      const newQuestion = {
+        question: question,
+        options: options
+      };
+      console.log(newQuestion);
+
+  
+      // Add the new question to the questionArray
+      setQuestionArray([...questionArray, newQuestion]);
+  
+      // Reset form state
+      setQuestions("");
+      setNumAdditionalInputs(0);
+      setAdditionalInputs([]);
+  
+      // Toggle expansion and set submission state
+      toggleExpanded();
+      setHasSubmitted(true);
+
+
+    }
   };
 
 
@@ -50,13 +110,12 @@ export default function ExpandableButton() {
                         <br />
 
                         <div>
-                            {additionalInputs.map((index) => (
+                          {additionalInputs.map((index) => (
                             <div key={index}>
-                                <p>Option {index}: &nbsp;<input type="text" /></p>
-                                <br />
-
+                              <p>Option {index}: &nbsp;<input type="text" id={`option-${index}`} /></p>
+                              <br />
                             </div>
-                            ))}
+                          ))}
                         </div>
     
                         <div className="absolute w-min p-2 rounded-lg bg-red-800 bottom-2 right-2 cursor-pointer" onClick={clickSubmit}>
