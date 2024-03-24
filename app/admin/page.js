@@ -1,10 +1,19 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import ExpandableButtonAdd from "../../components/Expandable-Button-Add.js";
 import Results from '@/components/Results.js';
 
 export default function Page() {
+
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/questions/')
+    .then(response => response.json())
+    .then(json => setData(json))
+    .catch(error => console.error(error));
+  }, []);
 
 const [isAdmin, setIsAdmin] = useState(false);
 const [usernameInput, setUsernameInput] = useState("");
@@ -34,6 +43,7 @@ const clickLogin = () => {
       </a>
       </div>
       <br/>
+      <br/>
 
       {!isAdmin && (
         <div className="flex justify-center">
@@ -52,7 +62,20 @@ const clickLogin = () => {
       )}
       
       {isAdmin && (
-        <ExpandableButtonAdd />
+        <div>
+          <ExpandableButtonAdd />
+          <br/>
+          <br/>
+          {
+        data.map((questionData, index) => (
+          <div>
+            <Results question={questionData.QuestionName} answers={questionData.AnswerChoices} />
+            <br/>
+            <br/>
+          </div>
+        ))
+      }
+        </div>
       )}
 
       
