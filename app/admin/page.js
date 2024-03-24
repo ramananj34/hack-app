@@ -7,11 +7,19 @@ import Results from '@/components/Results.js';
 export default function Page() {
 
   const [data, setData] = useState([]);
+  const [data2, setData2] = useState([]);
 
   useEffect(() => {
     fetch('http://localhost:3000/api/questions/')
     .then(response => response.json())
     .then(json => setData(json))
+    .catch(error => console.error(error));
+  }, []);
+
+  useEffect(() => {
+    fetch('http://localhost:3000/api/authentication/')
+    .then(response => response.json())
+    .then(json => setData2(json))
     .catch(error => console.error(error));
   }, []);
 
@@ -23,11 +31,13 @@ const handleUsernameChange = (event) => {
   setUsernameInput(event.target.value);
 };
 
+
 const handlePasswordChange = (event) => {
   setPasswordInput(event.target.value);
 };
 const clickLogin = () => {
-  if (usernameInput == "admin" && passwordInput== "admin") {
+  
+  if (usernameInput === data2[0].username && passwordInput === data2[0].password) {
     setIsAdmin(true);
   }
 };

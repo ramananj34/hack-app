@@ -7,6 +7,12 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+model Authentication {
+  id       String @id @default(auto()) @map("_id") @db.ObjectId
+  password String
+  username String
+}
+
 model Questions {
   id            String @id @default(auto()) @map("_id") @db.ObjectId
   AnswerChoices Json
