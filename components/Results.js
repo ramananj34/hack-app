@@ -1,12 +1,27 @@
 'use client'
 
-
-
 import React, { useState } from 'react';
+import prisma from '../lib/prisma';
 
-export default function Results({ question, answers }) {
+export default function Results({ question, answers, qid}) {
     const clickDelete = () => {
-        console.log("heyyyy");
+        async function postJSON(data) {
+            try {
+              const response = await fetch('http://localhost:3000/api/questions/', {
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: data,
+              });
+    
+              const result = await response.json();
+              console.log("Sucsess:", result);
+            } catch (error) {
+              console.error("Error: ", error);
+            }
+          }
+          postJSON(JSON.stringify(qid));
     };
     return(
         <div className="bg-slate-300 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow mx-auto" >

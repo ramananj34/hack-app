@@ -79,7 +79,7 @@ const clickLogin = () => {
           {
         data.map((questionData, index) => (
           <div>
-            <Results question={questionData.QuestionName} answers={questionData.AnswerChoices} />
+            <Results question={questionData.QuestionName} answers={questionData.AnswerChoices} qid={questionData.id}/>
             <br/>
             <br/>
           </div>

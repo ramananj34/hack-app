@@ -17,7 +17,6 @@ export async function POST(req) {
     const reqparameters = await req.json();
     const reqJSON = JSON.stringify(reqparameters);
     const reqobject = JSON.parse(reqJSON);
-    console.log("jdsoajdiosa");
     let createdQuestion = await prisma.Questions.create({
         data: {
             QuestionName: reqobject.question,
@@ -33,10 +32,17 @@ export async function PUT() {
     return Response.json(result);
 
 }
-export async function DELETE() {
-    
-    // getting
-    const result = await prisma.Questions.findMany();
-    return Response.json(result);
+export async function DELETE(req) {
+    const reqparameters = await req.json();
+    const reqJSON = JSON.stringify(reqparameters);
+    const reqobject = JSON.parse(reqJSON);
+    let deleted = await prisma.Questions.delete({
+        where: {
+            id: reqobject
+        }
+    });
+    return new Response('',{
+        status:200
+    });
 
 }
