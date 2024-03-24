@@ -4,6 +4,9 @@ import React, { useState } from 'react';
 import prisma from '../lib/prisma';
 
 export default function Results({ question, answers, qid}) {
+
+    const [isDeleted, setIsDeleted] = useState(false);
+
     const clickDelete = () => {
         async function postJSON(data) {
             try {
@@ -22,8 +25,12 @@ export default function Results({ question, answers, qid}) {
             }
           }
           postJSON(JSON.stringify(qid));
+
+          setIsDeleted(true);
     };
     return(
+        <div>
+        {!isDeleted && (
         <div className="bg-slate-300 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow mx-auto" >
             <h2 className="text-black font-bold mb-2">{question}</h2>
             <ul>
@@ -37,8 +44,13 @@ export default function Results({ question, answers, qid}) {
                 </div>
             </div>
         </div>
-
-
+        )}
+        {isDeleted && (
+            <div className="bg-slate-300 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow mx-auto" >
+                You have deleted this survey. 
+            </div>
+        )}
+        </div>
         
     );
     
