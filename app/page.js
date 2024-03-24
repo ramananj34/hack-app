@@ -26,16 +26,12 @@ export default function Home() {
           <p className="text-white">Admin</p>
         </div>
       </a>
-      <ExpandableButton question="question" answers={["one","two"]} />
       <br/>
       <br/>
       {
-        // (JSON.parse(JSON.stringify(data))).entries().forEach((element) => {
-        //   <div>{element.QuestionName}</div>
-        // }) 
         data.map((questionData, index) => (
           <div>
-            <ExpandableButton question={questionData.QuestionName} answers={questionData.AnswerChoices} />
+            <ExpandableButton question={questionData.QuestionName} answers={questionData.AnswerChoices.map(array => array[0])} />
             <br/>
             <br/>
           </div>
