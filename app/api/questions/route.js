@@ -9,8 +9,10 @@ export async function GET() {
 
 }
 export async function POST(req) {
-
-    console.log(await req.json());
+    const reqparameters = await req.json();
+    const reqJSON = JSON.stringify(reqparameters);
+    const reqobject = JSON.parse(reqJSON);
+    
     // getting
     const result = await prisma.Questions.findMany();
     return Response.json(result);
