@@ -22,13 +22,18 @@ export default function ExpandableButton({ question, answers, id }) {
     setHasSelected(true);
     setSelectedOption(event.target.value);
   };
-
+  function ValidateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@colgate.edu+$/.test(mail)){
+      return (true)
+    }
+    return (false)
+  }
   const handleEmailChange = (event) => {
     setEmailInput(event.target.value);
   };
 
   const clickSubmit = () => {
-    if (emailInput !== "" && hasSelected) {
+    if (hasSelected && ValidateEmail(emailInput)) {
       toggleExpanded();
       setIsSubmitted(true);
       const sendData = {
