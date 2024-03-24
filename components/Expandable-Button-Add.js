@@ -118,7 +118,7 @@ export default function ExpandableButton() {
 
     return (
         <div className="bg-slate-300 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow cursor-pointer mx-auto" onClick={toggleExpanded}>
-            <h2 class="text-black font-bold mb-2">Add New Survey</h2>
+            <h2 className="text-black font-bold mb-2">Add New Survey</h2>
         
             {expanded && (
                 <div className="relative bg-slate-400 p-4 pl-5 pr-5 rounded-lg cursor-default" onClick={handleInnerClick}>
