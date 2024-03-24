@@ -29,28 +29,26 @@ export async function PUT(req) {
     const reqparameters = await req.json();
     const reqJSON = JSON.stringify(reqparameters);
     const reqobject = JSON.parse(reqJSON);
-    console.log(reqobject);
-    console.log*("--------------")
-
     let queryQuestion = await prisma.Questions.findFirst({
         where:{
             id: reqobject.id,
         }
     });
-    console.log(queryQuestion);
-    console.log*("--------------")
-    queryQuestion.AnswerChoices.array.forEach(element => {
-        console.log(element);
+    queryQuestion.AnswerChoices.forEach(element => {
+        if(element[0] == reqobject.selectedOption){
+            element[1].push(reqobject.emailInput)
+            
+        }
     });
-    
-    
-
-    // console.log("jdsoajdiosa");
-
-
-    // getting
-    const result = await prisma.Questions.findMany();
-    return Response.json(result);
+    let modifiedQuery = await prisma.Questions.update({
+        where:{
+            id:queryQuestion.id
+        },
+        data:{
+            AnswerChoices: queryQuestion.AnswerChoices
+        }
+    })
+    return Response.json(modifiedQuery);
 
 }
 export async function DELETE(req) {
