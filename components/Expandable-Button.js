@@ -3,7 +3,7 @@
 
 import React, { useState } from 'react';
 
-export default function ExpandableButton({ question, answers }) {
+export default function ExpandableButton({ question, answers, id }) {
   const [expanded, setExpanded] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const [hasSelected, setHasSelected] = useState(false);
@@ -31,9 +31,25 @@ export default function ExpandableButton({ question, answers }) {
     if (emailInput !== "" && hasSelected) {
       toggleExpanded();
       setIsSubmitted(true);
+      postJSON(JSON.stringify(id));
     }
   };
+  async function postJSON(data) {
+    try {
+      const response = await fetch('http://localhost:3000/api/questions/', {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: data,
+      });
 
+      const result = await response.json();
+      console.log("Sucsess:", result);
+    } catch (error) {
+      console.error("Error: ", error);
+    }
+  }
   if (isSubmitted) {
     return (
       <div className="bg-green-200 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow mx-auto" onClick={toggleExpanded}>

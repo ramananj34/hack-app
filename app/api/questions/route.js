@@ -25,8 +25,22 @@ export async function POST(req) {
     });
     return Response.json(createdQuestion);
 }
-export async function PUT() {
-    
+export async function PUT(req) {
+    const reqparameters = await req.json();
+    const reqJSON = JSON.stringify(reqparameters);
+    const reqobject = JSON.parse(reqJSON);
+    console.log(reqobject);
+
+    // let queryQuestion = await prisma.findMany({
+    //     where:{
+    //         id: reqobject,
+    //     }
+    // });
+    // console.log(queryQuestion);
+
+    // console.log("jdsoajdiosa");
+
+
     // getting
     const result = await prisma.Questions.findMany();
     return Response.json(result);
