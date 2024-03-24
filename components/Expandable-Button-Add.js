@@ -27,7 +27,9 @@ export default function ExpandableButton() {
 
 
   const handleNumInputsChange = (event) => {
+
     const num = parseInt(event.target.value);
+    if(additionalInputs + num < 0 ){return} 
     setNumAdditionalInputs(num);
     setAdditionalInputs(Array.from({ length: num }, (_, index) => index + 1));
   };
