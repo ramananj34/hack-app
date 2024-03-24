@@ -113,6 +113,8 @@ export default function ExpandableButton() {
 
 
     }
+    window.location.reload();
+
   };
 
 
