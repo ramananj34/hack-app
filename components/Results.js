@@ -8,7 +8,7 @@ export default function Results({ question, answers, qid}) {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-      fetch('http://localhost:3000/api/questions/')
+      fetch('/api/questions/')
       .then(response => response.json())
       .then(json => setData(json))
       .catch(error => console.error(error));
@@ -19,7 +19,7 @@ export default function Results({ question, answers, qid}) {
     }
     async function GETemail(data) {
         try {
-          const response = await fetch('http://localhost:3000/api/questions/email/', {
+          const response = await fetch('/api/questions/email/', {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
@@ -39,7 +39,7 @@ export default function Results({ question, answers, qid}) {
     const [isDeleted, setIsDeleted] = useState(false);
     async function postJSON(data) {
         try {
-          const response = await fetch('http://localhost:3000/api/questions/', {
+          const response = await fetch('/api/questions/', {
             method: "DELETE",
             headers: {
               "Content-Type": "application/json",

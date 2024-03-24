@@ -11,14 +11,14 @@ export default function Page() {
   const [data2, setData2] = useState([]);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/questions/')
+    fetch('/api/questions/')
     .then(response => response.json())
     .then(json => setData(json))
     .catch(error => console.error(error));
   }, []);
 
   useEffect(() => {
-    fetch('http://localhost:3000/api/authentication/')
+    fetch('/api/authentication/')
     .then(response => response.json())
     .then(json => setData2(json))
     .catch(error => console.error(error));

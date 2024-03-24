@@ -11,7 +11,7 @@ export default function Home() {
     const [data, setData] = useState([]);
 
     useEffect(() => {
-      fetch('http://localhost:3000/api/questions/')
+      fetch('/api/questions/')
       .then(response => response.json())
       .then(json => setData(json))
       .catch(error => console.error(error));
