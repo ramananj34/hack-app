@@ -2,7 +2,8 @@ import React from "react";
 import ExpandableButton from "../components/Expandable-Button";
 
 export default function Home() {
-
+  // QUERY THE DATABASE FOR ALL THE QUESTIONS
+  //
 
   return (
     <div className="h-screen w-screen bg-white justify-center items-center">
