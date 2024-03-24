@@ -6,9 +6,7 @@ import React, { useState, useEffect } from 'react';
 export default function Home() {
   // QUERY THE DATABASE FOR ALL THE QUESTIONS
 
-    const [data, setData] = useState({});
-    const [qName, setQName] = useState("");
-    const [dataObject, setDataObject] = useState();
+    const [data, setData] = useState([]);
 
     useEffect(() => {
       fetch('http://localhost:3000/api/questions/')
@@ -28,23 +26,21 @@ export default function Home() {
           <p className="text-white">Admin</p>
         </div>
       </a>
-      <br/>
+      <ExpandableButton question="question" answers={["one","two"]} />
       <br/>
       <br/>
       {
         // (JSON.parse(JSON.stringify(data))).entries().forEach((element) => {
         //   <div>{element.QuestionName}</div>
         // }) 
-        
-        Object.entries(JSON.parse(JSON.stringify(data))).forEach((entry) => {
-          <ExpandableButton question="What do you feel about cutting down the trees in the middle campus?" answers={['I think it is a good idea!', 'I think it is a bad idea.']} />
-        })
+        data.map((questionData, index) => (
+          <div>
+            <ExpandableButton question={questionData.QuestionName} answers={questionData.AnswerChoices} />
+            <br/>
+            <br/>
+          </div>
+        ))
       }
-      <ExpandableButton question="What do you feel about cutting down the trees in the middle campus?" answers={['I think it is a good idea!', 'I think it is a bad idea.']} />
-      <br/>
-      <br/>
-      <ExpandableButton question="What do you feel about cutting down the trees in the middle campus?" answers={['I think it is a good idea!', 'I think it is a bad idea.']} />
-
     </div>
   );
 }
