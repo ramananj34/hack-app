@@ -15,16 +15,15 @@ export default function Results({ question, answers, qid}) {
     }, []);
 
     const getRandomEmail = () => {
-        email = postJSON(JSON.stringify(qid));
-        
-        
+        return 
     }
     async function GETemail(data) {
         try {
-          const response = await fetch('http://localhost:3000/api/questions/email', {
-            method: "GET",
+          const response = await fetch('http://localhost:3000/api/questions/email/', {
+            method: "POST",
             headers: {
               "Content-Type": "application/json",
+              
             },
             body: data,
           });
@@ -38,28 +37,29 @@ export default function Results({ question, answers, qid}) {
       }
 
     const [isDeleted, setIsDeleted] = useState(false);
+    async function postJSON(data) {
+        try {
+          const response = await fetch('http://localhost:3000/api/questions/', {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: data,
+          });
 
-    const clickDelete = () => {
-        getRandomEmail();
-        async function postJSON(data) {
-            try {
-              const response = await fetch('http://localhost:3000/api/questions/', {
-                method: "DELETE",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: data,
-              });
+          const result = await response.json();
+          console.log("Sucsess:", result);
+        } catch (error) {
+          console.error("Error: ", error);
+        }
+    }
     
-              const result = await response.json();
-              console.log("Sucsess:", result);
-            } catch (error) {
-              console.error("Error: ", error);
-            }
-          }
-          postJSON(JSON.stringify(qid));
-
-          setIsDeleted(true);
+    const clickDelete = () => {
+        GETemail(JSON.stringify(qid)).then((winningEmail)=>{
+            alert("The winner of the survey is: "+winningEmail);
+        })
+        postJSON(JSON.stringify(qid));
+        setIsDeleted(true);
     };
     return(
         <div>
@@ -80,7 +80,7 @@ export default function Results({ question, answers, qid}) {
         )}
         {isDeleted && (
             <div className="bg-slate-300 w-11/12 p-4 pl-5 pr-5 rounded-lg shadow mx-auto" >
-                You have deleted this survey. 
+                You have deleted this survey.
             </div>
         )}
         </div>
