@@ -77,6 +77,25 @@ export default function ExpandableButton() {
       };
       console.log(newQuestion);
 
+      const obj = JSON.stringify(newQuestion);
+      async function postJSON(data) {
+        try {
+          const response = await fetch('http://localhost:3000/api/questions/', {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: data,
+          });
+
+          const result = await response.json();
+          console.log("Sucsess:", result);
+        } catch (error) {
+          console.error("Error: ", error);
+        }
+      }
+      postJSON(obj);
+
   
       // Add the new question to the questionArray
       setQuestionArray([...questionArray, newQuestion]);
