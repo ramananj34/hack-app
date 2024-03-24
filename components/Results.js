@@ -1,9 +1,28 @@
 'use client'
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import prisma from '../lib/prisma';
 
 export default function Results({ question, answers, qid}) {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+      fetch('http://localhost:3000/api/questions/')
+      .then(response => response.json())
+      .then(json => setData(json))
+      .catch(error => console.error(error));
+    }, []);
+
+    const getRandomEmail = () => {
+        let data3 = null;
+        let a = data.map((questionData, index) => (
+            questionData.id == qid ? data3=questionData.AnswerChoices.map(array => array[1]) : data3=null
+        ));
+        console.log(data3);
+    }
+
+    //getRandomEmail();
 
     const [isDeleted, setIsDeleted] = useState(false);
 
