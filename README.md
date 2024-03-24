@@ -12,3 +12,9 @@ This app was developed with Next.JS, a React Framework and TailwindCSS with a cu
 
 <h1>HOW TO USE</h1>
 To use this site is easy. Simply click https://tinyurl.com/CUGHSY
+
+<h1>DIFFICULTIES AND CHALLANGES</h1>
+For many of us, this was our first hackathon, and the first time we touched databases, full stack development, HTTP servers, and frameworks. There was deffinently a big learning curve, especially with connecting the databases and creating the custom HTTP server, but once we overcame the inital obstacle of figuring out what different things meant and troubleshooting, it was very easy to understand what was going on.
+
+<h1>MARKET STRATEGY</h1>
+Our approach to selling this app is pretty simple, just approaching the Colgate administration with the product. Given more time, we would like to improve the UI and make it look even more visually pleasing and smooth. In addition, we can expand the site to account for multiple institutions, not just Colgate, so other companies, universities, and clients in general can create easily acsessible polls. 
