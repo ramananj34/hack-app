@@ -30,8 +30,8 @@ export default function Home() {
       <br/>
       {
         data.map((questionData, index) => (
-          <div key={questionData.id}>
-            <ExpandableButton key={questionData.id} question={questionData.QuestionName} answers={questionData.AnswerChoices.map((array,index) => array[0])} id={questionData.id} />
+          <div key={index}>
+            <ExpandableButton question={questionData.QuestionName} answers={questionData.AnswerChoices.map((array,index) => array[0])} id={questionData.id} />
             <br/>
             <br/>
           </div>
