@@ -10,7 +10,7 @@ During our time at Colgate, a big problem we noticed is the divide between the a
 There are two different sides to this website. On the client side, which the students will use, they can select an active poll, fill out the information, and submit it to the database. On the admin's end, they can create new polls, monitor existing ones, and delete old ones. When a poll is deleted, a random email is shown so the admin can contact that student regarding a prize.
 
 <h1>DEVELOPMENT</h1>
-This app was developed with Next.JS, a React Framework and TailwindCSS with a custom built API to handel calls and updates to our MongoDB database, which has been connected using Prisma. It is then hosted on our computer using Ngronk for everyone to see.
+This app was developed with Next.JS, a React Framework and TailwindCSS with a custom built API to handel calls and updates to our MongoDB database, which has been abstracted using Prisma. It is then hosted on our computer using Ngronk for everyone to see.
 
 <h1>HOW TO USE</h1>
 To use this site is easy. Simply click https://tinyurl.com/CUGHSY. To use the admin page, enter "admin" for the username and password.
