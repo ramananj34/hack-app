@@ -1,3 +1,5 @@
+video link: https://drive.google.com/file/d/1wVvdw8hke5RiZxZsKSlufCSOvxpzbd3h/view?usp=sharing
+
 <h1>INTRODUCTION</h1>
 This project is called Colgate Surveys, and it was done by Jude Ramanan, Fausto De Leon, Hugo Stickney, and Alex Radovich for Colgate's Gate-Hacks, 2024!
 
