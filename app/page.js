@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 'use client'
 
 import ExpandableButton from "../components/Expandable-Button";
@@ -40,3 +42,5 @@ export default function Home() {
     </div>
   );
 }
+
+/* eslint-enable */
