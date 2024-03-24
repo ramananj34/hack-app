@@ -11,7 +11,7 @@ There are two different sides to this website. On the client side, which the stu
 This app was developed with Next.JS, a React Framework and TailwindCSS with a custom built API to handel calls and updates to our MongoDB database, which has been connected using Prisma. It is then hosted on our computer using Ngronk for everyone to see.
 
 <h1>HOW TO USE</h1>
-To use this site is easy. Simply click https://tinyurl.com/CUGHSY
+To use this site is easy. Simply click https://tinyurl.com/CUGHSY. To use the admin page, enter "admin" for the username and password.
 
 <h1>DIFFICULTIES AND CHALLANGES</h1>
 For many of us, this was our first hackathon, and the first time we touched databases, full stack development, HTTP servers, and frameworks. There was deffinently a big learning curve, especially with connecting the databases and creating the custom HTTP server, but once we overcame the inital obstacles and syntax shock, it was pretty intuitive how everything worked together. 
