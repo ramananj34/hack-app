@@ -15,18 +15,32 @@ export default function Results({ question, answers, qid}) {
     }, []);
 
     const getRandomEmail = () => {
-        let data3 = null;
-        let a = data.map((questionData, index) => (
-            questionData.id == qid ? data3=questionData.AnswerChoices.map(array => array[1]) : data3=null
-        ));
-        console.log(data3);
+        email = postJSON(JSON.stringify(qid));
+        
+        
     }
+    async function GETemail(data) {
+        try {
+          const response = await fetch('http://localhost:3000/api/questions/email', {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: data,
+          });
 
-    //getRandomEmail();
+          const result = await response.json();
+          return result;
+        }
+         catch (error) {
+          console.error("Error: ", error);
+        }
+      }
 
     const [isDeleted, setIsDeleted] = useState(false);
 
     const clickDelete = () => {
+        getRandomEmail();
         async function postJSON(data) {
             try {
               const response = await fetch('http://localhost:3000/api/questions/', {
