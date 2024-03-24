@@ -31,7 +31,12 @@ export default function ExpandableButton({ question, answers, id }) {
     if (emailInput !== "" && hasSelected) {
       toggleExpanded();
       setIsSubmitted(true);
-      postJSON(JSON.stringify(id));
+      const sendData = {
+        "id":id,
+        "emailInput":emailInput,
+        "selectedOption":selectedOption
+      }
+      postJSON(JSON.stringify(sendData));
     }
   };
   async function postJSON(data) {

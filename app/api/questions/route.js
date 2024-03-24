@@ -30,13 +30,20 @@ export async function PUT(req) {
     const reqJSON = JSON.stringify(reqparameters);
     const reqobject = JSON.parse(reqJSON);
     console.log(reqobject);
+    console.log*("--------------")
 
-    // let queryQuestion = await prisma.findMany({
-    //     where:{
-    //         id: reqobject,
-    //     }
-    // });
-    // console.log(queryQuestion);
+    let queryQuestion = await prisma.Questions.findFirst({
+        where:{
+            id: reqobject.id,
+        }
+    });
+    console.log(queryQuestion);
+    console.log*("--------------")
+    queryQuestion.AnswerChoices.array.forEach(element => {
+        console.log(element);
+    });
+    
+    
 
     // console.log("jdsoajdiosa");
 
